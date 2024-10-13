@@ -4,6 +4,10 @@ from attr import attrs, attrib
 from data import *
 app = Flask(__name__)
 
+class Matoki:
+    def foo(self):
+        pass
+
 @attrs
 class UserAdmin:
     product_name = attrib()
@@ -22,6 +26,8 @@ def expose():
 
 @app.route('/api/hello')
 def hello_world():
+    matoki = Matoki()
+    matoki.foo()
     admin = expose()
     return f'hello {admin.name}'
 
