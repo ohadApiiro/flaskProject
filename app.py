@@ -26,11 +26,16 @@ def expose():
 
 @app.route('/api/hello')
 def hello_world():
-    matoki = Matoki()
-    matoki.foo()
+    pii = Pii('Jimi Hendrix', 27, 666, '123')
     admin = expose()
+
     return f'hello {admin.name}'
 
+
+@app.route('/api/foo')
+def foo():
+    pii = Pii('Jimi Hendrix', 27, 666, '123')
+    return f'name {pii.name} {pii.age}'
 
 if __name__ == '__main__':
     app.run()
